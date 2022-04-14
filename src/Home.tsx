@@ -18,6 +18,7 @@ import {
     mintOneToken,
     CANDY_MACHINE_PROGRAM,
 } from "./candy-machine";
+import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 
 const cluster = process.env.REACT_APP_SOLANA_NETWORK!.toString();
 const decimals = process.env.REACT_APP_SPL_TOKEN_TO_MINT_DECIMALS ? +process.env.REACT_APP_SPL_TOKEN_TO_MINT_DECIMALS!.toString() : 9;
@@ -544,20 +545,20 @@ const Home = (props: HomeProps) => {
         isEnded,
         isPresale
     ]);
-
+    
     return (
         <main>
             <MainContainer>
                 <WalletContainer>
-                    <Logo><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer"><img alt=""
-                                                                                                          src="logo.png"/></a></Logo>
+                    <Logo><a href="http://www.lettersforukraine.io" target="_blank" rel="noopener noreferrer"><img alt=""
+                                                                                                          src="LL Logo.jpg"/></a></Logo>
                     <Menu>
-                        <li><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer">Menu 1</a>
+                        <li><a href="http://www.lettersforukraine.io" target="_blank" rel="noopener noreferrer">Back</a>
                         </li>
-                        <li><a href="http://localhost:3000/" target="_blank"
-                               rel="noopener noreferrer">Menu 2</a></li>
-                        <li><a href="http://localhost:3000/" target="_blank"
-                               rel="noopener noreferrer">Menu 3</a></li>
+                        <li><a href="http://www.lettersforukraine.io" target="_blank"
+                               rel="noopener noreferrer">To</a></li>
+                        <li><a href="http://www.lettersforukraine.io" target="_blank"
+                               rel="noopener noreferrer">Home</a></li>
                     </Menu>
                     <Wallet>
                         {wallet ?
@@ -570,11 +571,11 @@ const Home = (props: HomeProps) => {
                 <MintContainer>
                     <DesContainer>
                         <NFT elevation={3}>
-                            <h2>My NFT</h2>
+                            <h2>Letters for Ukraine</h2>
                             <br/>
                             <div><Price
                                 label={isActive && whitelistEnabled && (whitelistTokenBalance > 0) ? (whitelistPrice + " " + priceLabel) : (price + " " + priceLabel)}/><Image
-                                src="cool-cats.gif"
+                                src="LFU Demo.gif"
                                 alt="NFT To Mint"/></div>
                             <br/>
                             {wallet && isActive && whitelistEnabled && (whitelistTokenBalance > 0) && isBurnToken &&
@@ -654,35 +655,37 @@ const Home = (props: HomeProps) => {
                             <br/>
                             {wallet && isActive && solanaExplorerLink &&
                               <SolExplorerLink href={solanaExplorerLink} target="_blank">View on Solscan</SolExplorerLink>}
+                              <div
+            style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+        >
+            <CrossmintPayButton
+                collectionTitle="Letters for Ukraine"
+                collectionDescription="7000 unique LetterHead NFTs with 100% of the profits going to support Ukraine 💙 Complete a set and receive a 1/1 NFT airdrop 💛 Sending more than just Letters 💌 Sending Support 💰"
+                collectionPhoto="https://imgur.com/a/6hPbaxW"
+                clientId="d63b3119-0d2f-4022-bf98-1f9abfee178d"
+            />
+        </div>
                         </NFT>
                     </DesContainer>
                     <DesContainer>
                         <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 1</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
+                            <LogoAligner><img src="U.png" alt=""></img><GoldTitle>Minting a LetterHead</GoldTitle></LogoAligner>
+                            <p>7000 unique LetterHead NFTs with 100% of the profits going to support Ukraine</p>
+                            <p>💙 Complete a set and receive an exclusive 1/1 NFT airdrop 💙</p>
+                            <p>Sending more than just Letters 💌 Sending Support 💰</p>
                         </Des>
                         <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 2</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
+                            <LogoAligner><img src="U.png" alt=""></img><GoldTitle>How to Mint?</GoldTitle></LogoAligner>
+                            <p>Connect your Solana wallet of choice and authorize the mint site.</p>
+                            <p>Click the "Mint" button, then authorize the transaction.</p>
+                            <p>Instantly see your NFT on Solscan! (repeat if you want more)</p>
                         </Des>
                         <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 3</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
+                            <LogoAligner><img src="U.png" alt=""></img><GoldTitle>What is Crossmint?</GoldTitle></LogoAligner>
+                            <p>By using the Crossmint option you will be able to mint using your credit or debit card.</p>
+                            <p>No wallet or crypto curreny required.</p>
+                            <p>Your NFTs will be stored on your Crossmint account.</p>
+                            <p>You will still recieve all benefits and you can transfer your NFTs out whenever you want.</p>
                         </Des>
                     </DesContainer>
                 </MintContainer>
